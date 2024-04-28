@@ -7,7 +7,10 @@
     <list default="true" id="7a85b005-15d1-493c-812d-11a14b464be2" name="Changes" comment="">
       <change afterPath="$PROJECT_DIR$/.idea/dam_proyecto_android_ada_psp-Iker14.iml" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ADA_PSP_P/demo/src/main/java/com/example/demo/controllers/UsuarioController.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/ADA_PSP_P/demo/src/main/java/com/example/demo/models/UsuarioModel.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ADA_PSP_P/demo/src/main/java/com/example/demo/repositories/UsuarioRepositories.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ADA_PSP_P/demo/src/main/java/com/example/demo/services/UsuarioServices.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.github/.keep" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
@@ -127,7 +130,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1714326481757</updated>
-      <workItem from="1714326482791" duration="1914000" />
+      <workItem from="1714326482791" duration="3022000" />
     </task>
     <servers />
   </component>
