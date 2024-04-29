@@ -1,10 +1,13 @@
 package com.example.demo.models;
 
-import com.example.demo.annotations.Tabble;
-import javax.persistence.*;
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
 
 @Entity
-@Tabble(name = "cursos")
+@Tabble(Name = "cursos")
 public class UsuarioModel {
 
     @Id

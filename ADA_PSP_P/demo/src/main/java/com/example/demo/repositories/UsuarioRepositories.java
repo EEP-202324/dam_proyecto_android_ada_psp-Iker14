@@ -1,10 +1,11 @@
 package com.example.demo.repositories;
 
-import com.example.demo.models.UsuarioModel;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 
+import com.example.demo.models.UsuarioModel;
 
-@repository
+
+@Repository
 public interface UsuarioRepositories extends CrudRepository<UsuarioModel, Long>{
 }
