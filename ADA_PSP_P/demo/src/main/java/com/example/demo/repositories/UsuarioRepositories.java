@@ -11,4 +11,6 @@ import com.example.demo.models.UsuarioModel;
 @Repository
 public interface UsuarioRepositories extends CrudRepository<UsuarioModel, Long>{
 	public abstract ArrayList<UsuarioModel> findByPrecio(Float precio);
+	public abstract ArrayList<UsuarioModel> findByCategoria(String categoria);
+	public abstract ArrayList<UsuarioModel> findByDireccion(String direccion);
 }

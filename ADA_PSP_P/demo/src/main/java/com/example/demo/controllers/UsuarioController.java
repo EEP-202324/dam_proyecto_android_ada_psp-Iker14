@@ -37,9 +37,19 @@ public class UsuarioController{
 		return this.usuarioServices.obtenerPorId(id);
 	}
     
-    @GetMapping("/query")
+    @GetMapping("/query-precio")
 	public ArrayList<UsuarioModel> obtenerCursoPorPrecio(@RequestParam("precio") Float precio) {
 		return this.usuarioServices.obtenerPorPrecio(precio);
+	}
+    
+    @GetMapping("/query-categoria")
+	public ArrayList<UsuarioModel> obtenerCursoPorCategoria(@RequestParam("categoria") String categoria) {
+		return this.usuarioServices.obtenerPorCategoria(categoria);
+	}
+    
+    @GetMapping("/query-direccion")
+	public ArrayList<UsuarioModel> obtenerCursoPorDireccion(@RequestParam("direccion") String direccion) {
+		return this.usuarioServices.obtenerPorDireccion(direccion);
 	}
     
     @DeleteMapping( path = "/{id}")

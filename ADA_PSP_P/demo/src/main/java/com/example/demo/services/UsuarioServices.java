@@ -31,6 +31,14 @@ public class UsuarioServices {
 		return usuarioRepositories.findByPrecio(precio);
 	}
 	
+	public ArrayList<UsuarioModel> obtenerPorCategoria(String categoria) {
+		return usuarioRepositories.findByCategoria(categoria);
+	}
+	
+	public ArrayList<UsuarioModel> obtenerPorDireccion(String direccion) {
+		return usuarioRepositories.findByDireccion(direccion);
+	}
+	
 	
 	public boolean eliminarCurso(Long id) {
 		try {
