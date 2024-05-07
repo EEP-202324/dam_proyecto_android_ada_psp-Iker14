@@ -69,4 +69,6 @@ public class DireccionYPrecioTest {
 	            .andExpect(MockMvcResultMatchers.jsonPath("$[0].precio").value(Matchers.greaterThan(0.0)))
 	            .andExpect(MockMvcResultMatchers.jsonPath("$[1].precio").value(Matchers.greaterThan(0.0)));
 	}
+    
+    
 }
