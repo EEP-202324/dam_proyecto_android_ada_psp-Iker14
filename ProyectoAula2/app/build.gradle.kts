@@ -72,11 +72,11 @@ dependencies {
     implementation("com.squareup.retrofit2:retrofit:2.11.0")
     implementation("com.squareup.retrofit2:converter-gson:2.11.0")
     implementation("com.squareup.retrofit2:converter-moshi:2.11.0")
-    implementation("mysql:mysql-connector-java:8.0.26")
-    implementation("androidx.compose.foundation:foundation:1.0.5")
+    implementation("mysql:mysql-connector-java:8.0.33")
+    implementation("androidx.compose.foundation:foundation:1.6.7")
 
-    implementation("androidx.compose.ui:ui:1.0.5")
-    implementation("androidx.compose.material:material:1.0.5")
-    implementation("androidx.compose.runtime:runtime-livedata:1.0.5")
-    implementation("androidx.navigation:navigation-compose:2.4.0-alpha10")
+    implementation("androidx.compose.ui:ui:1.6.7")
+    implementation("androidx.compose.material:material:1.6.7")
+    implementation("androidx.compose.runtime:runtime-livedata:1.6.7")
+    implementation("androidx.navigation:navigation-compose:2.7.7")
 }

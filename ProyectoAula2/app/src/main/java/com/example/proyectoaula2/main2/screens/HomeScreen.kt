@@ -20,7 +20,7 @@ import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.lazy.itemsIndexed
 import androidx.compose.foundation.lazy.rememberLazyListState
 import androidx.compose.material3.Card
-import androidx.compose.material3.Text
+import androidx.compose.material.Text
 import androidx.compose.material3.TextButton
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
@@ -34,6 +34,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavHostController
+import androidx.navigation.compose.rememberNavController
 import com.example.proyectoaula2.main2.CursosAula
 import com.example.proyectoaula2.main2.CursosRepository
 import kotlinx.coroutines.runBlocking
@@ -43,29 +44,29 @@ fun HomeScreen(navController: NavHostController) {
     val repository = CursosRepository()
     val courses = runBlocking { repository.getCursos() }
     val scrollState = rememberLazyListState()
-    val coroutineScope = rememberCoroutineScope()
+    rememberCoroutineScope()
 
     Column (
         modifier = Modifier.fillMaxSize(),
         verticalArrangement = Arrangement.Center
     ) {
-//        Row (
-//            verticalAlignment = Alignment.CenterVertically,
-//            horizontalArrangement = Arrangement.Center ,
-//            modifier = Modifier
-//                .fillMaxWidth()
-//                .height(100.dp)
-//                .background(Color(0xFF000080)) // Navy blue color
-//                .padding(horizontal = 8.dp)
-//                .clip(RoundedCornerShape(8.dp))
-//                .clickable { showPresencialCursos }
-//        ) {
-//            Text(text = "Cursos presenciales", color = Color.White )
-//        }
-        TextButton(onClick = { navController.navigate("presencial") }) {
-            Text("Cursos presenciales")
+        Row (
+            verticalAlignment = Alignment.CenterVertically,
+            horizontalArrangement = Arrangement.Center ,
+            modifier = Modifier
+                .fillMaxWidth()
+                .height(100.dp)
+                .background(Color(0xFF000080))
+                .padding(horizontal = 16.dp)
+                .clip(RoundedCornerShape(8.dp))
+                .clickable { navController.navigate("Cursos presenciales") }
+        ) {
+           TextButton(onClick = { navController.navigate("presencial") }) {
+            Text(text = "Cursos presenciales", color = Color.White )
 
         }
+        }
+
 
         Spacer(modifier = Modifier.height(50.dp))
 
@@ -76,11 +77,15 @@ fun HomeScreen(navController: NavHostController) {
                 .fillMaxWidth()
                 .height(100.dp)
                 .background(Color(0xFF000080))
-                .padding(horizontal = 8.dp)
+                .padding(horizontal = 16.dp)
                 .clip(RoundedCornerShape(8.dp))
                 .clickable { navController.navigate("Cursos online") }
         ) {
-            Text(text = "Cursos online", color = Color.White )
+            TextButton(onClick = { navController.navigate("presencial") }) {
+                Text(text = "Cursos online", color = Color.White )
+
+            }
+
         }
 
         LazyColumn(state = scrollState) {
@@ -96,22 +101,22 @@ fun HomeScreen(navController: NavHostController) {
 }
 
 
-@Composable
-fun showPresencialCourses() {
-    val courses = remember { mutableStateOf(listOf<CursosAula>()) }
-    LaunchedEffect(Unit) {
-        courses.value = fetchPresencialCoursesFromApi()
-    }
+//@Composable
+//fun ShowPresencialCourses() {
+//    val courses = remember { mutableStateOf(listOf<CursosAula>()) }
+//    LaunchedEffect(Unit) {
+//        courses.value = fetchPresencialCoursesFromApi()
+//    }
+//
+//    LazyColumn {
+//        items(courses.value) { course ->
+//            CourseItem(course)
+//        }
+//    }
+//}
 
-    LazyColumn {
-        items(courses.value) { course ->
-            CourseItem(course)
-        }
-    }
-}
-
 @Composable
-fun showOnlineCursos() {
+fun ShowOnlineCursos() {
     val courses = remember { mutableStateOf(listOf<CursosAula>()) }
     LaunchedEffect(Unit) {
         courses.value = fetchOnlineCoursesFromApi()
@@ -125,7 +130,7 @@ fun showOnlineCursos() {
 }
 
 @Composable
-fun showPresencialCursos() {
+fun ShowPresencialCursos() {
     val courses = remember { mutableStateOf(listOf<CursosAula>()) }
     LaunchedEffect(Unit) {
         courses.value = fetchOnlineCoursesFromApi()
@@ -164,8 +169,11 @@ fun CourseItem(course: CursosAula) {
     }
 }
 
-//@Preview
-//@Composable
-//fun PreviewHomeScreen() {
-//    HomeScreen( navController = NavHostController())
-//}
+
+
+@Preview
+@Composable
+fun PreviewHomeScreen() {
+    val navController = rememberNavController()
+    HomeScreen(navController = navController)
+}

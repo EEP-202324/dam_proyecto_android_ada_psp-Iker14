@@ -6,5 +6,5 @@ data class CursosResponse(
     val direccion: String,
     val id: Int,
     val nombre: String,
-    val precio: Double
+    val precio: Float
 )
