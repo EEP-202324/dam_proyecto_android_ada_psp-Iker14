@@ -5,7 +5,16 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="7a85b005-15d1-493c-812d-11a14b464be2" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ProyectoAula2/app/src/main/java/com/example/proyectoaula2/appProyect.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ProyectoAula2/app/src/main/java/com/example/proyectoaula2/main2/screens/FormularioScreen.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ProyectoAula2/app/src/main/java/com/example/proyectoaula2/main2/screens/OnlineScreen.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ProyectoAula2/app/src/main/java/com/example/proyectoaula2/main2/screens/PresencialScreen.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProyectoAula2/app/build.gradle.kts" beforeDir="false" afterPath="$PROJECT_DIR$/ProyectoAula2/app/build.gradle.kts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProyectoAula2/app/src/main/java/com/example/proyectoaula2/MainActivity.kt" beforeDir="false" afterPath="$PROJECT_DIR$/ProyectoAula2/app/src/main/java/com/example/proyectoaula2/MainActivity.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProyectoAula2/app/src/main/java/com/example/proyectoaula2/main2/CursosRepository.kt" beforeDir="false" afterPath="$PROJECT_DIR$/ProyectoAula2/app/src/main/java/com/example/proyectoaula2/main2/CursosRepository.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProyectoAula2/app/src/main/java/com/example/proyectoaula2/main2/cursosApi.kt" beforeDir="false" afterPath="$PROJECT_DIR$/ProyectoAula2/app/src/main/java/com/example/proyectoaula2/main2/cursosApi.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProyectoAula2/app/src/main/java/com/example/proyectoaula2/main2/screens/HomeScreen.kt" beforeDir="false" afterPath="$PROJECT_DIR$/ProyectoAula2/app/src/main/java/com/example/proyectoaula2/main2/screens/HomeScreen.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProyectoAula2/gradle/libs.versions.toml" beforeDir="false" afterPath="$PROJECT_DIR$/ProyectoAula2/gradle/libs.versions.toml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -70,6 +79,7 @@
       <workItem from="1714326482791" duration="4750000" />
       <workItem from="1714993778686" duration="6662000" />
       <workItem from="1715250316657" duration="3000" />
+      <workItem from="1715344149533" duration="136000" />
     </task>
     <servers />
   </component>

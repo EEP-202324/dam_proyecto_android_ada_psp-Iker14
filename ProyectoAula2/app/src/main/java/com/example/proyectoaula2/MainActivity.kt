@@ -21,9 +21,7 @@ class MainActivity : ComponentActivity() {
         enableEdgeToEdge()
         setContent {
             ProyectoAula2Theme {
-                Surface {
-                    HomeScreen()
-                }
+                ControlVentana()
 
             }
         }

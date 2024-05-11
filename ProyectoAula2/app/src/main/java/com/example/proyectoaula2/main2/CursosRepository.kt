@@ -5,7 +5,7 @@ class CursosRepository {
 
     suspend fun getCursos(): List<CursosAula> {
         return try {
-            val response = api.getCursos()
+            val response = api.getCursos("/curso/query-direction?direction=in-person")
             response.map { convertToCursosAula(it) }
         } catch (e: Exception) {
             emptyList()
