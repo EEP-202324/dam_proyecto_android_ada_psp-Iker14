@@ -13,6 +13,7 @@ import com.example.proyectoaula2.main2.screens.HomeScreen
 import com.example.proyectoaula2.main2.screens.OnlineScreen
 import com.example.proyectoaula2.main2.screens.OnlineScreen
 import com.example.proyectoaula2.main2.screens.PresencialScreen
+
 import com.example.proyectoaula2.ui.theme.ProyectoAula2Theme
 
 @SuppressLint("SuspiciousIndentation")
@@ -29,14 +30,14 @@ import com.example.proyectoaula2.ui.theme.ProyectoAula2Theme
                     composable("home") {
                         HomeScreen(navController = navController)
                     }
-                    composable("formulario") {
-                        FormularioScreen(navController = navController)
-                    }
                     composable("presencial") {
                         PresencialScreen(navController = navController)
                     }
                     composable("online") {
                         OnlineScreen(navController = navController)
+                    }
+                    composable("formulario") {
+                        FormularioScreen(navController = navController)
                     }
 
 

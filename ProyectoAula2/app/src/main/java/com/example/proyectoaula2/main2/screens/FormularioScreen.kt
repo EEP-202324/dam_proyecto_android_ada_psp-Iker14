@@ -1,6 +1,7 @@
 package com.example.proyectoaula2.main2.screens
 
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.material.Text
 import androidx.compose.material.TextField
 import androidx.compose.material3.Button
@@ -9,6 +10,8 @@ import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
+import androidx.compose.ui.Alignment
+import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.navigation.NavController
 import androidx.navigation.compose.rememberNavController
@@ -30,34 +33,41 @@ fun FormularioScreen(navController: NavController) {
         TextField(
             value = categoria,
             onValueChange = { categoria = it },
-            label = { Text("Categoria") }
+            label = { Text("Categoria") },
+            modifier = Modifier.fillMaxWidth()
         )
         TextField(
             value = descripcion,
             onValueChange = { descripcion = it },
-            label = { Text("Descripcion") }
+            label = { Text("Descripcion") },
+            modifier = Modifier.fillMaxWidth()
         )
         TextField(
             value = direccion,
             onValueChange = { direccion = it },
-            label = { Text("Direccion") }
+            label = { Text("Direccion") },
+            modifier = Modifier.fillMaxWidth()
         )
         TextField(
             value = id,
             onValueChange = { id = it },
-            label = { Text("id") }
+            label = { Text("id") },
+            modifier = Modifier.fillMaxWidth()
         )
         TextField(
             value = nombre,
             onValueChange = { nombre = it },
-            label = { Text("Nombre") }
+            label = { Text("Nombre") },
+            modifier = Modifier.fillMaxWidth()
         )
         TextField(
             value = precio,
             onValueChange = { precio = it },
-            label = { Text("Precio") }
+            label = { Text("Precio") },
+            modifier = Modifier.fillMaxWidth()
         )
-        Button(onClick = { addCourse(categoria, descripcion, direccion, id.toInt(), nombre, precio.toFloat()) }) {
+        Button(onClick = { addCourse(categoria, descripcion, direccion, id.toInt(), nombre, precio.toFloat()) },
+            modifier = Modifier.align(Alignment.CenterHorizontally)) {
             Text("Añadir curso")
         }
     }
@@ -74,9 +84,9 @@ fun addCourse(categoria: String, descripcion: String, direccion: String, id: Int
     }
 }
 
-@Preview
-@Composable
-fun PreviewFormularioScreen() {
-    val navController = rememberNavController()
-    FormularioScreen(navController = navController)
-}
+//@Preview
+//@Composable
+//fun PreviewFormularioScreen() {
+//    val navController = rememberNavController()
+//    FormularioScreen(navController = navController)
+//}
