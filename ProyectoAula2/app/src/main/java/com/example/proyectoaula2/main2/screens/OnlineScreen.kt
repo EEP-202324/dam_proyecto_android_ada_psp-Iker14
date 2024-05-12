@@ -17,22 +17,22 @@ import java.lang.reflect.Modifier
 
 @Composable
 fun OnlineScreen(navController: NavController) {
-    val viewModel: CursosViewModel = viewModel()
-    val cursos = remember { mutableStateOf(listOf<CursosAula>()) }
-
-//    LaunchedEffect(key1 = viewModel) {
-//        cursos.value = viewModel.fetchOnlineCursosFromApi()
+//    val viewModel: CursosViewModel = viewModel()
+//    val cursos = remember { mutableStateOf(listOf<CursosAula>()) }
+//
+////    LaunchedEffect(key1 = viewModel) {
+////        cursos.value = viewModel.fetchOnlineCursosFromApi()
+////    }
+//
+//    LazyColumn {
+//        items(cursos.value) { curso ->
+//            Card {
+//                Column {
+//                    Text(text = curso.nombre)
+//                    Text(text = curso.descripcion)
+//                    // Agrega más campos según sea necesario
+//                }
+//            }
+//        }
 //    }
-
-    LazyColumn {
-        items(cursos.value) { curso ->
-            Card {
-                Column {
-                    Text(text = curso.nombre)
-                    Text(text = curso.descripcion)
-                    // Agrega más campos según sea necesario
-                }
-            }
-        }
-    }
 }

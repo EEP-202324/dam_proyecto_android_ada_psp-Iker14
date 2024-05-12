@@ -47,6 +47,9 @@ import kotlinx.coroutines.runBlocking
 
 @Composable
 fun HomeScreen(navController: NavHostController) {
+//    val scrollState = rememberLazyListState()
+//    val coroutineScope = rememberCoroutineScope()
+//    rememberCoroutineScope()
     rememberLazyListState()
     rememberCoroutineScope()
 

@@ -66,7 +66,13 @@ fun FormularioScreen(navController: NavController) {
             label = { Text("Precio") },
             modifier = Modifier.fillMaxWidth()
         )
-        Button(onClick = { addCourse(categoria, descripcion, direccion, id.toInt(), nombre, precio.toFloat()) },
+        Button(onClick = {
+            if (id.isNotBlank() && precio.isNotBlank()) {
+                addCourse(categoria, descripcion, direccion, id.toInt(), nombre, precio.toFloat())
+            } else {
+                println("Los campos id y precio no pueden estar vacíos.")
+            }
+        },
             modifier = Modifier.align(Alignment.CenterHorizontally)) {
             Text("Añadir curso")
         }
@@ -76,11 +82,17 @@ fun FormularioScreen(navController: NavController) {
 fun addCourse(categoria: String, descripcion: String, direccion: String, id: Int, nombre: String, precio: Float) {
     val newCourse = CursosAula(categoria, descripcion, direccion, id, nombre, precio)
     val api = cursosApi.create()
-    val response = runBlocking { api.addCourse(newCourse) }
-    if (response.isSuccessful) {
-        // Handle successful response
+    val response = runBlocking {
+        try {
+            api.addCourse(newCourse)
+        } catch (e: Exception) {
+            null
+        }
+    }
+    if (response?.isSuccessful == true) {
+        println("El curso se añadió con éxito.")
     } else {
-        // Handle error
+        println("Hubo un error al añadir el curso. Código de error: ${response?.code()}")
     }
 }
 

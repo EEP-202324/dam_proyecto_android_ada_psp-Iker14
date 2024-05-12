@@ -1,5 +1,6 @@
 package com.example.proyectoaula2
 
+import PresencialScreen
 import android.annotation.SuppressLint
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Scaffold
@@ -8,11 +9,11 @@ import androidx.compose.ui.Modifier
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
+import com.example.proyectoaula2.main2.CursosRepository
 import com.example.proyectoaula2.main2.screens.FormularioScreen
 import com.example.proyectoaula2.main2.screens.HomeScreen
 import com.example.proyectoaula2.main2.screens.OnlineScreen
-import com.example.proyectoaula2.main2.screens.OnlineScreen
-import com.example.proyectoaula2.main2.screens.PresencialScreen
+
 
 import com.example.proyectoaula2.ui.theme.ProyectoAula2Theme
 
@@ -20,6 +21,8 @@ import com.example.proyectoaula2.ui.theme.ProyectoAula2Theme
 @Composable
  fun ControlVentana() {
      val navController = rememberNavController()
+    val repository = CursosRepository()
+
         ProyectoAula2Theme {
             Scaffold (
                 topBar = {
@@ -31,7 +34,7 @@ import com.example.proyectoaula2.ui.theme.ProyectoAula2Theme
                         HomeScreen(navController = navController)
                     }
                     composable("presencial") {
-                        PresencialScreen(navController = navController)
+                        PresencialScreen(navController = navController, repository = repository)
                     }
                     composable("online") {
                         OnlineScreen(navController = navController)
