@@ -87,7 +87,7 @@ fun HomeScreen(navController: NavHostController) {
                     .clip(RoundedCornerShape(8.dp))
                     .clickable { navController.navigate("Cursos online") }
             ) {
-                TextButton(onClick = { navController.navigate("online") }) {
+                TextButton(onClick = { navController.navigate("onlineScreen/online") }) {
                     Text(text = "Cursos online", color = Color.White )
                 }
             }

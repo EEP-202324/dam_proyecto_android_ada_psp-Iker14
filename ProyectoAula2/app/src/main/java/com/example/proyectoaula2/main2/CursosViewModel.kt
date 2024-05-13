@@ -20,22 +20,16 @@ class CursosViewModelFactory(private val repository: CursosRepository) : ViewMod
 }
 
 class CursosViewModel(private val repository: CursosRepository) : ViewModel() {
-    private val _cursosPresenciales = MutableLiveData<List<CursosAula>>()
-    val cursosPresenciales: LiveData<List<CursosAula>> = _cursosPresenciales
-    private val _error = MutableLiveData<String>()
-    val error: LiveData<String> = _error
+    private val _cursos = MutableLiveData<List<CursosAula>>()
+    val cursos: LiveData<List<CursosAula>> = _cursos
 
-    fun fetchCursosPresenciales(direccion: String) {
+    fun cargarCursos(tipo: String) {
         viewModelScope.launch {
             try {
-                val response = repository.obtenerCursosPresenciales(direccion)
-                if (response.isSuccessful && response.body() != null) {
-                    _cursosPresenciales.postValue(response.body())
-                } else {
-                    _error.postValue("Error loading courses: ${response.errorBody()?.string()}")
-                }
+                _cursos.value = repository.obtenerCursos(tipo)
             } catch (e: Exception) {
-                _error.postValue("Network error: ${e.message}")
+                Log.e("CursosViewModel", "Failed to load courses", e)
+                // Aquí puedes manejar los errores como prefieras
             }
         }
     }

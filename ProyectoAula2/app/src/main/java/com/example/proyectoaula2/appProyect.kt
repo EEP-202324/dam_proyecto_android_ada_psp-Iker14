@@ -1,50 +1,85 @@
 package com.example.proyectoaula2
 
-import PresencialScreen
+
 import android.annotation.SuppressLint
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Scaffold
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import com.example.proyectoaula2.main2.CursosRepository
+import com.example.proyectoaula2.main2.CursosViewModel
+import com.example.proyectoaula2.main2.CursosViewModelFactory
+import com.example.proyectoaula2.main2.cursosApi
 import com.example.proyectoaula2.main2.screens.FormularioScreen
 import com.example.proyectoaula2.main2.screens.HomeScreen
 import com.example.proyectoaula2.main2.screens.OnlineScreen
+import com.example.proyectoaula2.main2.screens.PresencialScreen
 
 
 import com.example.proyectoaula2.ui.theme.ProyectoAula2Theme
 
 @SuppressLint("SuspiciousIndentation")
 @Composable
- fun ControlVentana() {
-     val navController = rememberNavController()
-    val repository = CursosRepository()
+fun ControlVentana() {
+    val navController = rememberNavController()
+    val apiService = cursosApi.create()
+    val repository = CursosRepository(apiService)
+    val cursosViewModel: CursosViewModel = viewModel(factory = CursosViewModelFactory(repository))
 
-        ProyectoAula2Theme {
-            Scaffold (
-                topBar = {
-                    //AppTopBar()
-                }
-            ){innerPadding ->
-                NavHost(navController = navController, startDestination = "home", modifier = Modifier.padding(innerPadding)) {
-                    composable("home") {
-                        HomeScreen(navController = navController)
-                    }
-                    composable("presencial") {
-                        PresencialScreen(navController = navController, repository = repository)
-                    }
-                    composable("online") {
-                        OnlineScreen(navController = navController)
-                    }
-                    composable("formulario") {
-                        FormularioScreen(navController = navController)
-                    }
-
-
+    ProyectoAula2Theme {
+        Scaffold (
+            topBar = {
+                // AppTopBar(), si tienes una barra superior
             }
+        ) { innerPadding ->
+            NavHost(navController = navController, startDestination = "home", modifier = Modifier.padding(innerPadding)) {
+                composable("home") {
+                    HomeScreen(navController = navController)
+                }
+                composable("presencial") {
+                    PresencialScreen(navController = navController, viewModel = cursosViewModel, tipo = "presencial")
+                }
+                composable("online") {
+                    OnlineScreen(navController = navController, viewModel = cursosViewModel, tipo = "online")
+                }
+                composable("formulario") {
+                    FormularioScreen(navController = navController)
+                }
             }
         }
- }
+    }
+}
+//@Composable
+// fun ControlVentana() {
+//     val navController = rememberNavController()
+//    val repository = CursosRepository()
+//
+//        ProyectoAula2Theme {
+//            Scaffold (
+//                topBar = {
+//                    //AppTopBar()
+//                }
+//            ){innerPadding ->
+//                NavHost(navController = navController, startDestination = "home", modifier = Modifier.padding(innerPadding)) {
+//                    composable("home") {
+//                        HomeScreen(navController = navController)
+//                    }
+//                    composable("presencial") {
+//                        PresencialScreen(navController = navController, repository = repository)
+//                    }
+//                    composable("online") {
+//                        OnlineScreen(navController = navController)
+//                    }
+//                    composable("formulario") {
+//                        FormularioScreen(navController = navController)
+//                    }
+//
+//
+//            }
+//            }
+//        }
+// }

@@ -10,13 +10,12 @@ import retrofit2.http.Query
 import retrofit2.http.Url
 
 interface cursosApi {
-    @GET
-    suspend fun getCursos(@Url url: String): List<CursosResponse>
 
     @GET("curso/query-direccion")
     suspend fun obtenerCursosPresenciales(@Query("direccion") direccion: String): Response<List<CursosAula>>
 
-
+    @GET("curso/query-direccion")
+    suspend fun obtenerCursosPorTipo(@Query("direccion") direccion: String): Response<List<CursosAula>>
 
     @POST("")
     suspend fun addCourse(@Body newCourse: CursosAula): Response<CursosAula>
@@ -25,7 +24,7 @@ interface cursosApi {
         fun create(): cursosApi {
             val retrofit = Retrofit.Builder()
                 .addConverterFactory(GsonConverterFactory.create())
-                .baseUrl("http://10.0.2.2:8080/curso/")
+                .baseUrl("http://10.0.2.2:8080/")
                 .build()
             return retrofit.create(cursosApi::class.java)
         }
