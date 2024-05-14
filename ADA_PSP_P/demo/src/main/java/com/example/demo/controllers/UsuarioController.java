@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -54,12 +55,11 @@ public class UsuarioController{
 	}
     
     @DeleteMapping("/{id}")
-        public String eliminarPorId(@PathVariable("id") Long id) {
-			boolean ok = this.usuarioServices.eliminarCurso(id);
-			if (ok) {
-				return "Se eliminó el curso con id " + id;
+        public ResponseEntity<?> eliminarPorId(@PathVariable("id") Long id) {
+			if (this.usuarioServices.eliminarCurso(id)) {
+				return ResponseEntity.status(204).body("");
 			} else {
-				return "No se pudo eliminar el curso con id " + id;
+				return ResponseEntity.notFound().build();
 			}
     }
     
