@@ -13,6 +13,7 @@ import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Delete
+import androidx.compose.material3.Button
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.Icon
@@ -142,12 +143,16 @@ fun PresencialScreen(navController: NavController, tipo: String) {
             items(cursos) { curso ->
                 Curso2Item(curso)
             }
+
+        }
+        Button(onClick = { navController.navigate("home") }) {
+            Text("Salir")
         }
     }
 }
 
 @Composable
-fun Curso2Item(curso: CursosAula, viewModel: CursosViewModel = viewModel()) {
+fun Curso2Item(curso: CursosAula, viewModel: CursosViewModel = viewModel(), navController: NavController = rememberNavController()) {
     var detallesVisibles by remember { mutableStateOf(false) }
 
     Card(
@@ -166,10 +171,7 @@ fun Curso2Item(curso: CursosAula, viewModel: CursosViewModel = viewModel()) {
                     style = MaterialTheme.typography.titleMedium.copy(fontWeight = FontWeight.Bold)
                 )
                 Spacer(modifier = Modifier.width(16.dp))
-                IconButton(onClick = { viewModel.deleteCourse(curso.id) }) {
-                    Icon(Icons.Filled.Delete, contentDescription = "Eliminar curso")
 
-                }
                 // Si los detalles están visibles, muestra el texto "Ocultar detalles"
                 if (detallesVisibles) {
                     Text("Ocultar detalles")
@@ -187,7 +189,13 @@ fun Curso2Item(curso: CursosAula, viewModel: CursosViewModel = viewModel()) {
                 Text(text = curso.categoria, style = MaterialTheme.typography.bodyMedium)
                 Text("Precio: ${curso.precio}")
                 Text(curso.descripcion)
+                IconButton(onClick = { viewModel.deleteCourse(curso.id) }) {
+                    Icon(Icons.Filled.Delete, contentDescription = "Eliminar curso")
+
+                }
             }
+
+
         }
     }
 }
@@ -206,7 +214,7 @@ fun PreviewCurso2Item() {
             categoria = "Categoria",
             descripcion = "Descripcion",
             direccion = "Direccion",
-            id = "id",
+            id = 2,
             nombre = "Nombre",
             precio = 100.0f
         )

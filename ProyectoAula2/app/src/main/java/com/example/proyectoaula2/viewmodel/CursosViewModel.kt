@@ -17,6 +17,26 @@ class CursosViewModel() : ViewModel() {
     private val _cursos = MutableStateFlow<List<CursosAula>>(emptyList())
     val cursos : StateFlow<List<CursosAula>> = _cursos.asStateFlow()
 
+    private val curso = MutableStateFlow<CursosAula?>(null)
+    val cursoState: StateFlow<CursosAula?> = curso.asStateFlow()
+
+    fun getCurso(id: Int) {
+        viewModelScope.launch {
+            try {
+                val response = cursosApi.retrofitService.obtenerCurso(id)
+                if (response.isSuccessful) {
+                    curso.value = response.body()
+                } else {
+                    Log.e(
+                        "CursosViewModel",
+                        "Failed to get course: ${response.errorBody()?.string()}"
+                    )
+                }
+            } catch (e: Exception) {
+                Log.e("CursosViewModel", "Failed to load courses", e)
+            }
+        }
+    }
     fun cargarCursos(tipo: String) {
         viewModelScope.launch {
             try {
@@ -50,16 +70,12 @@ class CursosViewModel() : ViewModel() {
         }
     }
 
-    fun deleteCourse(id: String) {
+    fun deleteCourse(id: Int) {
         viewModelScope.launch {
             try {
                 val response = cursosApi.retrofitService.deleteCourse(id)
-                if (response.isSuccessful && response.body() != null) {
-                    val deletedCourse = response.body()!!
-                    val updatedList = _cursos.value.orEmpty().toMutableList().apply {
-                        removeIf { it.id == deletedCourse.id }
-                    }
-                    _cursos.value = updatedList
+                if (response.isSuccessful) {
+                    _cursos.value = _cursos.value.filter { it.id != id }
                 } else {
                     Log.e(
                         "CursosViewModel",
@@ -72,7 +88,7 @@ class CursosViewModel() : ViewModel() {
         }
     }
 
-    fun updateCourse(id: String, updatedCourse: CursosAula) {
+    fun updateCourse(id: Int, updatedCourse: CursosAula) {
         viewModelScope.launch {
             try {
                 val response = cursosApi.retrofitService.updateCourse(id, updatedCourse)

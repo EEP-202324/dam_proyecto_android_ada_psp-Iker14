@@ -7,6 +7,7 @@ import retrofit2.http.DELETE
 import retrofit2.http.GET
 import retrofit2.http.POST
 import retrofit2.http.PUT
+import retrofit2.http.Path
 import retrofit2.http.Query
 
 interface ApiService {
@@ -17,13 +18,16 @@ interface ApiService {
     @GET("curso/query-direccion")
     suspend fun obtenerCursosPorTipo(@Query("direccion") direccion: String): Response<List<CursosAula>>
 
-    @POST("curso/")
+    @GET("curso/{id}")
+    suspend fun obtenerCurso(@Query("id") id: Int): Response<CursosAula>
+
+    @POST("curso")
     suspend fun addCourse(@Body newCourse: CursosAula): Response<CursosAula>
 
     @DELETE("curso/{id}")
-    suspend fun deleteCourse(@Query("id") id: String): Response<CursosAula>
+    suspend fun deleteCourse(@Path("id") id: Int): Response<Unit>
 
     @PUT("curso/{id}")
-    suspend fun updateCourse(@Query("id") id: String, @Body updatedCourse: CursosAula): Response<CursosAula>
+    suspend fun updateCourse(@Path("id") id: Int, @Body updatedCourse: CursosAula): Response<CursosAula>
 
 }

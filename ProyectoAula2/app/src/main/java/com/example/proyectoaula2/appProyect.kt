@@ -26,7 +26,6 @@ import com.example.proyectoaula2.ui.theme.ProyectoAula2Theme
 @Composable
 fun ControlVentana() {
     val navController = rememberNavController()
-    val cursosViewModel: CursosViewModel = viewModel()
 
     ProyectoAula2Theme {
         Scaffold (
@@ -42,7 +41,7 @@ fun ControlVentana() {
                     OnlineScreen(navController = navController, tipo = "online")
                 }
                 composable("presencial") {
-                    OnlineScreen(navController = navController, tipo = "presencial")
+                    PresencialScreen(navController = navController, tipo = "presencial")
                 }
                 composable("formulario") {
                     FormularioScreen(navController = navController)
