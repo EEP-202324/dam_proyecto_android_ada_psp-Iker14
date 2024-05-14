@@ -4,7 +4,7 @@ data class CursosAula(
     val categoria: String,
     val descripcion: String,
     val direccion: String,
-    val id: Int,
+    val id: String,
     val nombre: String,
     val precio: Float
 )

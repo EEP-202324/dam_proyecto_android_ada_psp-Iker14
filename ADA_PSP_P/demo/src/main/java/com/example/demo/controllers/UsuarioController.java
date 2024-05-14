@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -32,7 +33,7 @@ public class UsuarioController{
         return this.usuarioServices.guardarCurso(curso);
     }
     
-    @GetMapping( path = "/{id}")
+    @GetMapping("/{id}")
 	public Optional<UsuarioModel> obtenerCursoPorId(@PathVariable("id") Long id) {
 		return this.usuarioServices.obtenerPorId(id);
 	}
@@ -52,7 +53,7 @@ public class UsuarioController{
 		return this.usuarioServices.obtenerPorDireccion(direccion);
 	}
     
-    @DeleteMapping( path = "/{id}")
+    @DeleteMapping("/{id}")
         public String eliminarPorId(@PathVariable("id") Long id) {
 			boolean ok = this.usuarioServices.eliminarCurso(id);
 			if (ok) {
@@ -61,4 +62,14 @@ public class UsuarioController{
 				return "No se pudo eliminar el curso con id " + id;
 			}
     }
+    
+    @PutMapping("/{id}")
+	public String actualizarCurso(@PathVariable("id") Long id, @RequestBody UsuarioModel curso) {
+		boolean ok = this.usuarioServices.actualizarCurso(id, curso);
+		if (ok) {
+			return "Se actualizó el curso con id " + id;
+		} else {
+			return "No se pudo actualizar el curso con id " + id;
+		}
+	}
 }

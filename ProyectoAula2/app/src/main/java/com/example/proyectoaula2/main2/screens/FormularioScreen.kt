@@ -2,9 +2,9 @@ package com.example.proyectoaula2.main2.screens
 
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxWidth
-import androidx.compose.material.Text
-import androidx.compose.material.TextField
 import androidx.compose.material3.Button
+import androidx.compose.material3.Text
+import androidx.compose.material3.TextField
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
@@ -12,16 +12,16 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.tooling.preview.Preview
+import androidx.compose.ui.platform.LocalContext
+import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.NavController
-import androidx.navigation.compose.rememberNavController
 import com.example.proyectoaula2.main2.CursosAula
-import com.example.proyectoaula2.main2.cursosApi
-import kotlinx.coroutines.runBlocking
-
+import com.example.proyectoaula2.viewmodel.CursosViewModel
 
 @Composable
 fun FormularioScreen(navController: NavController) {
+    val viewModel: CursosViewModel = viewModel()
+    val context = LocalContext.current
     var categoria by remember { mutableStateOf("") }
     var descripcion by remember { mutableStateOf("") }
     var direccion by remember { mutableStateOf("") }
@@ -48,12 +48,12 @@ fun FormularioScreen(navController: NavController) {
             label = { Text("Direccion") },
             modifier = Modifier.fillMaxWidth()
         )
-        TextField(
-            value = id,
-            onValueChange = { id = it },
-            label = { Text("id") },
-            modifier = Modifier.fillMaxWidth()
-        )
+//        TextField(
+//            value = id,
+//            onValueChange = { id = it },
+//            label = { Text("id") },
+//            modifier = Modifier.fillMaxWidth()
+//        )
         TextField(
             value = nombre,
             onValueChange = { nombre = it },
@@ -67,11 +67,10 @@ fun FormularioScreen(navController: NavController) {
             modifier = Modifier.fillMaxWidth()
         )
         Button(onClick = {
-            if (id.isNotBlank() && precio.isNotBlank()) {
-                addCourse(categoria, descripcion, direccion, id.toInt(), nombre, precio.toFloat())
-            } else {
-                println("Los campos id y precio no pueden estar vacíos.")
-            }
+
+                val newCourse = CursosAula(categoria, descripcion, direccion, id, nombre, precio.toFloat())
+               viewModel.createCourse(newCourse)
+                navController.popBackStack()
         },
             modifier = Modifier.align(Alignment.CenterHorizontally)) {
             Text("Añadir curso")
@@ -79,22 +78,22 @@ fun FormularioScreen(navController: NavController) {
     }
 }
 
-fun addCourse(categoria: String, descripcion: String, direccion: String, id: Int, nombre: String, precio: Float) {
-    val newCourse = CursosAula(categoria, descripcion, direccion, id, nombre, precio)
-    val api = cursosApi.create()
-    val response = runBlocking {
-        try {
-            api.addCourse(newCourse)
-        } catch (e: Exception) {
-            null
-        }
-    }
-    if (response?.isSuccessful == true) {
-        println("El curso se añadió con éxito.")
-    } else {
-        println("Hubo un error al añadir el curso. Código de error: ${response?.code()}")
-    }
-}
+//fun addCourse(categoria: String, descripcion: String, direccion: String, id: Int, nombre: String, precio: Float) {
+//    val newCourse = CursosAula(categoria, descripcion, direccion, id, nombre, precio)
+//    val api = cursosApi.create()
+//    val response = runBlocking {
+//        try {
+//            api.addCourse(newCourse)
+//        } catch (e: Exception) {
+//            null
+//        }
+//    }
+//    if (response?.isSuccessful == true) {
+//        println("El curso se añadió con éxito.")
+//    } else {
+//        println("Hubo un error al añadir el curso. Código de error: ${response?.code()}")
+//    }
+//}
 
 //@Preview
 //@Composable

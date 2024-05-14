@@ -48,4 +48,14 @@ public class UsuarioServices {
 			return false;
 		}
 	}
+
+	public boolean actualizarCurso(Long id, UsuarioModel curso) {
+		try {
+			usuarioRepositories.save(curso);
+			return true;
+		} catch (Exception e) {
+			return false;
+		}
+	}
+		
 }
