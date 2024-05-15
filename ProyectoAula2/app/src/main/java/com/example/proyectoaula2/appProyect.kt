@@ -18,6 +18,7 @@ import com.example.proyectoaula2.main2.screens.FormularioScreen
 import com.example.proyectoaula2.main2.screens.HomeScreen
 import com.example.proyectoaula2.main2.screens.OnlineScreen
 import com.example.proyectoaula2.main2.screens.PresencialScreen
+import com.example.proyectoaula2.main2.screens.SplashScreen
 
 
 import com.example.proyectoaula2.ui.theme.ProyectoAula2Theme
@@ -29,23 +30,14 @@ fun ControlVentana() {
 
     ProyectoAula2Theme {
         Scaffold (
-            topBar = {
-                // AppTopBar(), si tienes una barra superior
-            }
+            // topBar = { AppTopBar() } si tienes una barra superior
         ) { innerPadding ->
-            NavHost(navController = navController, startDestination = "home", modifier = Modifier.padding(innerPadding)) {
-                composable("home") {
-                    HomeScreen(navController = navController)
-                }
-                composable("online") {
-                    OnlineScreen(navController = navController, tipo = "online")
-                }
-                composable("presencial") {
-                    PresencialScreen(navController = navController, tipo = "presencial")
-                }
-                composable("formulario") {
-                    FormularioScreen(navController = navController)
-                }
+            NavHost(navController = navController, startDestination = "splash", modifier = Modifier.padding(innerPadding)) {
+                composable("splash") { SplashScreen(navController) }
+                composable("home") { HomeScreen(navController) }
+                composable("online") { OnlineScreen(navController = navController, tipo = "online") }
+                composable("presencial") { PresencialScreen(navController = navController, tipo = "presencial") }
+                composable("formulario") { FormularioScreen(navController = navController) }
             }
         }
     }

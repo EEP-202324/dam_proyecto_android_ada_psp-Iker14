@@ -15,6 +15,8 @@ import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.Image
+import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.width
 import androidx.compose.ui.res.painterResource
 import com.example.proyectoaula2.R
 
@@ -104,14 +106,19 @@ fun AppBarWithLogo() {
     TopAppBar(
         backgroundColor = MaterialTheme.colorScheme.surface,
         contentColor = MaterialTheme.colorScheme.onSurface,
-        contentPadding = PaddingValues(horizontal = 16.dp),
+        contentPadding = PaddingValues(horizontal = 25.dp),
         elevation = 0.dp,
-        modifier = Modifier.padding(top = 10.dp)
+        modifier = Modifier.padding(top = 20.dp)
     ) {
-        Image(
-            painter = painterResource(id = R.mipmap.logo_app_foreground),
-            contentDescription = "Logo de la App"
-        )
+        Box(modifier = Modifier.fillMaxSize(), contentAlignment = Alignment.Center) {
+            Image(
+                painter = painterResource(id = R.mipmap.logo_app_foreground),
+                contentDescription = "Logo de la App",
+                modifier = Modifier
+                    .width(800.dp)
+                    .height(800.dp)
+            )
+        }
     }
 }
 
