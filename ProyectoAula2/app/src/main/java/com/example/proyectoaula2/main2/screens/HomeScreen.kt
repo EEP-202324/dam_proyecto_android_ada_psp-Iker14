@@ -54,14 +54,14 @@ fun HomeScreen(navController: NavHostController) {
             painter = backgroundImage,
             contentDescription = "Background",
             modifier = Modifier.fillMaxSize(),
-            contentScale = ContentScale.FillBounds // Asegura que la imagen se ajuste a la pantalla
+            contentScale = ContentScale.FillBounds
         )
 
         Column(
             modifier = Modifier.fillMaxSize(),
             verticalArrangement = Arrangement.Center
         ) {
-            AppBarWithLogo()
+            AppBarWithLogo(navController)
 
         }
     }
@@ -72,7 +72,7 @@ fun HomeScreen(navController: NavHostController) {
     Column(
         modifier = Modifier
             .fillMaxSize()
-            .padding(top = 100.dp), // Mueve todos los elementos hacia abajo
+            .padding(top = 70.dp), // Añade margen superior
 
         verticalArrangement = Arrangement.Center
     ) {
@@ -115,7 +115,7 @@ fun HomeScreen(navController: NavHostController) {
         Button(
             onClick = { navController.navigate("formulario") },
             modifier = Modifier.align(Alignment.CenterHorizontally).padding(top = 16.dp)
-        ) { // Centra el botón y añade margen superior
+        ) {
             Text(text = "+")
         }
     }
@@ -123,7 +123,7 @@ fun HomeScreen(navController: NavHostController) {
 
 
 @Composable
-fun AppBarWithLogo() {
+fun AppBarWithLogo(navController: NavHostController) {
     TopAppBar(
         backgroundColor = Color.Transparent,
         contentColor = MaterialTheme.colorScheme.onSurface,
@@ -137,29 +137,12 @@ fun AppBarWithLogo() {
                 modifier = Modifier
                     .width(50.dp)
                     .height(50.dp)
+                    .clickable { navController.navigate("splash") }
             )
         }
     }
 }
 
-
-
-
-//@Composable
-//fun CourseItem(course: CursosAula) {
-//    Card(modifier = Modifier
-//        .fillMaxWidth()
-//        .padding(8.dp)) {
-//        Column(modifier = Modifier.padding(16.dp)) {
-//            Text(text = "Nombre del curso: ${course.nombre}")
-//            Text(text = "Id: ${course.id}")
-//            Text(text = "Categoria: ${course.categoria}")
-//            Text(text = "Descripcion: ${course.descripcion}")
-//            Text(text = "Direccion: ${course.direccion}")
-//            Text(text = "Precio: ${course.precio}")
-//        }
-//    }
-//}
 
 
 

@@ -75,7 +75,6 @@ fun CursoItem(curso: CursosAula, viewModel: CursosViewModel = viewModel(), navCo
         elevation = CardDefaults.cardElevation(defaultElevation = 5.dp)
     ) {
         Column(modifier = Modifier.padding(16.dp)) {
-            // Nombre del curso en grande y en negrita
             Row {
                 Text(
                     curso.nombre,
@@ -83,18 +82,14 @@ fun CursoItem(curso: CursosAula, viewModel: CursosViewModel = viewModel(), navCo
                 )
                 Spacer(modifier = Modifier.width(16.dp))
 
-                // Si los detalles están visibles, muestra el texto "Ocultar detalles"
+
                 if (detallesVisibles) {
                     Text("Ocultar detalles")
                 } else {
-                    // Si los detalles no están visibles, muestra el texto "Ver detalles"
                     Text("Ver detalles")
                 }
             }
-//            Text(
-//                curso.nombre,
-//                style = MaterialTheme.typography.titleMedium.copy(fontWeight = FontWeight.Bold)
-//            )
+
 
             if (detallesVisibles) {
                 Text(text = curso.categoria, style = MaterialTheme.typography.bodyMedium)

@@ -42,33 +42,3 @@ fun ControlVentana() {
         }
     }
 }
-//@Composable
-// fun ControlVentana() {
-//     val navController = rememberNavController()
-//    val repository = CursosRepository()
-//
-//        ProyectoAula2Theme {
-//            Scaffold (
-//                topBar = {
-//                    //AppTopBar()
-//                }
-//            ){innerPadding ->
-//                NavHost(navController = navController, startDestination = "home", modifier = Modifier.padding(innerPadding)) {
-//                    composable("home") {
-//                        HomeScreen(navController = navController)
-//                    }
-//                    composable("presencial") {
-//                        PresencialScreen(navController = navController, repository = repository)
-//                    }
-//                    composable("online") {
-//                        OnlineScreen(navController = navController)
-//                    }
-//                    composable("formulario") {
-//                        FormularioScreen(navController = navController)
-//                    }
-//
-//
-//            }
-//            }
-//        }
-// }

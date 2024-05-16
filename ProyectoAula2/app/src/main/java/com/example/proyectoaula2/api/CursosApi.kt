@@ -15,44 +15,5 @@ object cursosApi {
     }
 }
 
-//
-//    companion object {
-//        fun create(): cursosApi {
-//            val retrofit = Retrofit.Builder()
-//                .addConverterFactory(GsonConverterFactory.create())
-//                .baseUrl("http://10.0.2.2:8080/")
-//                .build()
-//            return retrofit.create(cursosApi::class.java)
-//        }
-//
-//        suspend fun obtenerCursosPresenciales(direccion: String): Response<List<CursosAula>> {
-//            val api = create()
-//            return api.obtenerCursosPresenciales(direccion)
-//        }
-//    }
-//
-////    object CursosMapper {
-////        fun convertToCursosAula(data: CursosResponse) : CursosAula {
-////            return CursosAula(
-////                categoria = data.categoria,
-////                descripcion = data.descripcion,
-////                direccion = data.direccion,
-////                id = data.id,
-////                nombre = data.nombre,
-////                precio = data.precio
-////            )
-////        }
-////    }
-//
-////    suspend fun fetchPresencialCursosFromApi(): List<CursosAula> {
-////        val api = cursosApi.create()
-////        val response = api.getCursos("/curso/query-direccion?direction=presencial")
-////        return response.map { CursosMapper.convertToCursosAula(it) }
-////    }
-////
-////    suspend fun fetchOnlineCursosFromApi(): List<CursosAula> {
-////        val api = cursosApi.create()
-////        val response = api.getCursos("/curso/query-direccion?direction=online")
-////        return response.map { CursosMapper.convertToCursosAula(it) }
-////    }
+
 

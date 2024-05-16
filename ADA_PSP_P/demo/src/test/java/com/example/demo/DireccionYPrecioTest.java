@@ -14,15 +14,15 @@ import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
 
-import com.example.demo.models.UsuarioModel;
-import com.example.demo.services.UsuarioServices;
+import com.example.demo.models.CursoModel;
+import com.example.demo.services.CursoServices;
 
 @SpringBootTest
 @AutoConfigureMockMvc
 
 public class DireccionYPrecioTest {
 	@MockBean
-    private UsuarioServices usuarioServices;
+    private CursoServices usuarioServices;
 
     @Autowired
     private MockMvc mockMvc;
@@ -30,11 +30,11 @@ public class DireccionYPrecioTest {
     @Test
     public void testObtenerCursoPorDireccion() throws Exception {
         // Crear datos de prueba
-        UsuarioModel usuario1 = new UsuarioModel();
+        CursoModel usuario1 = new CursoModel();
         usuario1.setDireccion("direccion1");
-        UsuarioModel usuario2 = new UsuarioModel();
+        CursoModel usuario2 = new CursoModel();
         usuario2.setDireccion("direccion2");
-        ArrayList<UsuarioModel> listaUsuarios = new ArrayList<>(Arrays.asList(usuario1, usuario2));
+        ArrayList<CursoModel> listaUsuarios = new ArrayList<>(Arrays.asList(usuario1, usuario2));
 
         // Configurar el mock para devolver los datos de prueba cuando se llame al método obtenerPorDireccion()
         when(usuarioServices.obtenerPorDireccion("direccion1")).thenReturn(listaUsuarios);
@@ -51,11 +51,11 @@ public class DireccionYPrecioTest {
     @Test
 	public void testObtenerCursoPorPrecio() throws Exception {
 	    // Crear datos de prueba
-	    UsuarioModel usuario1 = new UsuarioModel();
+	    CursoModel usuario1 = new CursoModel();
 	    usuario1.setPrecio(100.0f);
-	    UsuarioModel usuario2 = new UsuarioModel();
+	    CursoModel usuario2 = new CursoModel();
 	    usuario2.setPrecio(200.0f);
-	    ArrayList<UsuarioModel> listaUsuarios = new ArrayList<>(Arrays.asList(usuario1, usuario2));
+	    ArrayList<CursoModel> listaUsuarios = new ArrayList<>(Arrays.asList(usuario1, usuario2));
 
 	    // Configurar el mock para devolver los datos de prueba cuando se llame al método obtenerPorPrecio()
 	    when(usuarioServices.obtenerPorPrecio(100.0f)).thenReturn(listaUsuarios);

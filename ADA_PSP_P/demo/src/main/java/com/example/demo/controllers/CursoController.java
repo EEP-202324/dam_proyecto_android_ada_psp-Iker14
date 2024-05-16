@@ -15,48 +15,48 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.example.demo.models.UsuarioModel;
-import com.example.demo.services.UsuarioServices;
+import com.example.demo.models.CursoModel;
+import com.example.demo.services.CursoServices;
 
 @RestController
 @RequestMapping("/curso")
-public class UsuarioController{
+public class CursoController{
     @Autowired
-    UsuarioServices usuarioServices;
+    CursoServices cursoServices;
 
     @GetMapping()
-    public ArrayList<UsuarioModel> obtenerCursos(){
-        return usuarioServices.obtenerCursos();
+    public ArrayList<CursoModel> obtenerCursos(){
+        return cursoServices.obtenerCursos();
     }
 
     @PostMapping()
-    public UsuarioModel guardarUsuario(@RequestBody UsuarioModel curso){
-        return this.usuarioServices.guardarCurso(curso);
+    public CursoModel guardarUsuario(@RequestBody CursoModel curso){
+        return this.cursoServices.guardarCurso(curso);
     }
     
     @GetMapping("/{id}")
-	public Optional<UsuarioModel> obtenerCursoPorId(@PathVariable("id") Long id) {
-		return this.usuarioServices.obtenerPorId(id);
+	public Optional<CursoModel> obtenerCursoPorId(@PathVariable("id") Long id) {
+		return this.cursoServices.obtenerPorId(id);
 	}
     
     @GetMapping("/query-precio")
-	public ArrayList<UsuarioModel> obtenerCursoPorPrecio(@RequestParam("precio") Float precio) {
-		return this.usuarioServices.obtenerPorPrecio(precio);
+	public ArrayList<CursoModel> obtenerCursoPorPrecio(@RequestParam("precio") Float precio) {
+		return this.cursoServices.obtenerPorPrecio(precio);
 	}
     
     @GetMapping("/query-categoria")
-	public ArrayList<UsuarioModel> obtenerCursoPorCategoria(@RequestParam("categoria") String categoria) {
-		return this.usuarioServices.obtenerPorCategoria(categoria);
+	public ArrayList<CursoModel> obtenerCursoPorCategoria(@RequestParam("categoria") String categoria) {
+		return this.cursoServices.obtenerPorCategoria(categoria);
 	}
     
     @GetMapping("/query-direccion")
-	public ArrayList<UsuarioModel> obtenerCursoPorDireccion(@RequestParam("direccion") String direccion) {
-		return this.usuarioServices.obtenerPorDireccion(direccion);
+	public ArrayList<CursoModel> obtenerCursoPorDireccion(@RequestParam("direccion") String direccion) {
+		return this.cursoServices.obtenerPorDireccion(direccion);
 	}
     
     @DeleteMapping("/{id}")
         public ResponseEntity<?> eliminarPorId(@PathVariable("id") Long id) {
-			if (this.usuarioServices.eliminarCurso(id)) {
+			if (this.cursoServices.eliminarCurso(id)) {
 				return ResponseEntity.status(204).body("");
 			} else {
 				return ResponseEntity.notFound().build();
@@ -64,8 +64,8 @@ public class UsuarioController{
     }
     
     @PutMapping("/{id}")
-	public String actualizarCurso(@PathVariable("id") Long id, @RequestBody UsuarioModel curso) {
-		boolean ok = this.usuarioServices.actualizarCurso(id, curso);
+	public String actualizarCurso(@PathVariable("id") Long id, @RequestBody CursoModel curso) {
+		boolean ok = this.cursoServices.actualizarCurso(id, curso);
 		if (ok) {
 			return "Se actualizó el curso con id " + id;
 		} else {

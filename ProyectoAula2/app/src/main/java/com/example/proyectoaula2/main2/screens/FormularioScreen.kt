@@ -88,27 +88,3 @@ fun FormularioScreen(navController: NavController) {
         }
     }
 }
-
-//fun addCourse(categoria: String, descripcion: String, direccion: String, id: Int, nombre: String, precio: Float) {
-//    val newCourse = CursosAula(categoria, descripcion, direccion, id, nombre, precio)
-//    val api = cursosApi.create()
-//    val response = runBlocking {
-//        try {
-//            api.addCourse(newCourse)
-//        } catch (e: Exception) {
-//            null
-//        }
-//    }
-//    if (response?.isSuccessful == true) {
-//        println("El curso se añadió con éxito.")
-//    } else {
-//        println("Hubo un error al añadir el curso. Código de error: ${response?.code()}")
-//    }
-//}
-
-//@Preview
-//@Composable
-//fun PreviewFormularioScreen() {
-//    val navController = rememberNavController()
-//    FormularioScreen(navController = navController)
-//}

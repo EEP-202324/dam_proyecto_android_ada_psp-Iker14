@@ -9,6 +9,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
@@ -17,20 +18,32 @@ import kotlinx.coroutines.delay
 
 @Composable
 fun SplashScreen(navController: NavController) {
-    Box(modifier = Modifier.fillMaxSize(), contentAlignment = Alignment.Center) {
+    val backgroundImage = painterResource(id = R.drawable.fondoandroid)
+
+    Box(modifier = Modifier.fillMaxSize()) {
         Image(
-            painter = painterResource(id = R.mipmap.logo_app_foreground),
-            contentDescription = "Logo de la App",
-            modifier = Modifier
-                .width(200.dp)
-                .height(200.dp)
+            painter = backgroundImage,
+            contentDescription = "Background",
+            modifier = Modifier.fillMaxSize(),
+            contentScale = ContentScale.FillBounds
         )
+
+        Box(modifier = Modifier.fillMaxSize(), contentAlignment = Alignment.Center) {
+            Image(
+                painter = painterResource(id = R.mipmap.logo_app_foreground),
+                contentDescription = "Logo de la App",
+                modifier = Modifier
+                    .width(200.dp)
+                    .height(200.dp)
+            )
+        }
     }
 
     LaunchedEffect(Unit) {
         delay(5000)
-        navController.navigate("home") {
-            popUpTo("splash") { inclusive = true }
-        }
-    }
+  navController.navigate("home") {
+    popUpTo("splash") { inclusive = true }
 }
+}
+}
+
