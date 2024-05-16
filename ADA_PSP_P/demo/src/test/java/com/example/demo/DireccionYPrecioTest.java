@@ -22,7 +22,7 @@ import com.example.demo.services.CursoServices;
 
 public class DireccionYPrecioTest {
 	@MockBean
-    private CursoServices usuarioServices;
+    private CursoServices cursoServices;
 
     @Autowired
     private MockMvc mockMvc;
@@ -37,7 +37,7 @@ public class DireccionYPrecioTest {
         ArrayList<CursoModel> listaUsuarios = new ArrayList<>(Arrays.asList(usuario1, usuario2));
 
         // Configurar el mock para devolver los datos de prueba cuando se llame al método obtenerPorDireccion()
-        when(usuarioServices.obtenerPorDireccion("direccion1")).thenReturn(listaUsuarios);
+        when(cursoServices.obtenerPorDireccion("direccion1")).thenReturn(listaUsuarios);
 
         // Realizar la petición GET al endpoint /query-direccion y verificar la respuesta
         mockMvc.perform(MockMvcRequestBuilders.get("/curso/query-direccion")
@@ -58,7 +58,7 @@ public class DireccionYPrecioTest {
 	    ArrayList<CursoModel> listaUsuarios = new ArrayList<>(Arrays.asList(usuario1, usuario2));
 
 	    // Configurar el mock para devolver los datos de prueba cuando se llame al método obtenerPorPrecio()
-	    when(usuarioServices.obtenerPorPrecio(100.0f)).thenReturn(listaUsuarios);
+	    when(cursoServices.obtenerPorPrecio(100.0f)).thenReturn(listaUsuarios);
 	    
 
 	    // Realizar la petición GET al endpoint /query-precio y verificar la respuesta
