@@ -6,6 +6,7 @@ import androidx.lifecycle.viewModelScope
 import com.example.proyectoaula2.api.ApiService
 import com.example.proyectoaula2.api.cursosApi
 import com.example.proyectoaula2.main2.CursosAula
+import com.google.gson.JsonSyntaxException
 import kotlinx.coroutines.flow.MutableStateFlow
 
 
@@ -92,24 +93,17 @@ class CursosViewModel() : ViewModel() {
             try {
                 val response = cursosApi.retrofitService.updateCourse(id, updatedCourse)
                 if (response.isSuccessful && response.body() != null) {
-                    val updatedCourse = response.body()!!
-                    val updatedList = _cursos.value.orEmpty().toMutableList().apply {
-                        val index = indexOfFirst { it.id == updatedCourse.id }
-                        if (index != -1) {
-                            set(index, updatedCourse)
-                        }
-                    }
-                    _cursos.value = updatedList
+                    val message = response.body()!!
+                    Log.d("CursosViewModel", "Response: $message")
+                    // Actualizar la UI o la lista de cursos si es necesario
                 } else {
-                    Log.e(
-                        "CursosViewModel",
-                        "Failed to update course: ${response.errorBody()?.string()}"
-                    )
+                    Log.e("CursosViewModel", "Failed to update course: ${response.errorBody()?.string()}")
                 }
             } catch (e: Exception) {
-                Log.e("CursosViewModel", "Failed to load courses", e)
+                Log.e("CursosViewModel", "Error updating course", e)
             }
         }
     }
+
 }
 

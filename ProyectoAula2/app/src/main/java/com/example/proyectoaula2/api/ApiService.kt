@@ -1,6 +1,7 @@
 package com.example.proyectoaula2.api
 
 import com.example.proyectoaula2.main2.CursosAula
+import retrofit2.Call
 import retrofit2.Response
 import retrofit2.http.Body
 import retrofit2.http.DELETE
@@ -27,7 +28,15 @@ interface ApiService {
     @DELETE("curso/{id}")
     suspend fun deleteCourse(@Path("id") id: Int): Response<Unit>
 
-    @PUT("curso/{id}")
-    suspend fun updateCourse(@Path("id") id: Int, @Body updatedCourse: CursosAula): Response<CursosAula>
+//    @PUT("curso/{id}")
+//    suspend fun updateCourse(@Path("id") id: Int, @Body updatedCourse: CursosAula): Response<String>
 
+//    @PUT("curso/{id}")
+//    fun updateCourse(@Path("id") id: Int, @Body curso: Curso): Call<String>
+
+//    @PUT("curso/{id}")
+//    suspend fun updateCourse(@Path("id") id: Int, @Body curso: CursosAula): Response<CursosAula>
+
+    @PUT("curso/{id}")
+    suspend fun updateCourse(@Path("id") id: Int, @Body updatedCourse: CursosAula): Response<String>
 }

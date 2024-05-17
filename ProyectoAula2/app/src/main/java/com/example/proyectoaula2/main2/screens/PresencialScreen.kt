@@ -30,6 +30,7 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.platform.testTag
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
@@ -52,11 +53,11 @@ fun PresencialScreen(navController: NavController, tipo: String) {
     Column(modifier = Modifier.fillMaxSize()) {
         LazyColumn {
             items(cursos) { curso ->
-                Curso2Item(curso)
+                Curso2Item(curso, viewModel, navController)
             }
 
         }
-        Button(onClick = { navController.navigate("home") }) {
+        Button(onClick = { navController.navigate("home") }, modifier = Modifier.testTag("miBoton")) {
             Text("Salir")
         }
     }
@@ -96,6 +97,7 @@ fun Curso2Item(curso: CursosAula, viewModel: CursosViewModel = viewModel(), navC
                 IconButton(onClick = { navController.navigate("edit/${curso.id}") }) {
                     Icon(Icons.Filled.Edit, contentDescription = "Editar curso")
                 }
+
                 IconButton(onClick = { viewModel.deleteCourse(curso.id) }) {
                     Icon(Icons.Filled.Delete, contentDescription = "Eliminar curso")
 
