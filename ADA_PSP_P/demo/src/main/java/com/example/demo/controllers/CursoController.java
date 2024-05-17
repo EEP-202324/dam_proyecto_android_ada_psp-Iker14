@@ -1,9 +1,10 @@
-package  com.example.demo.controllers;
+package com.example.demo.controllers;
 
 import java.util.ArrayList;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -20,56 +21,63 @@ import com.example.demo.services.CursoServices;
 
 @RestController
 @RequestMapping("/curso")
-public class CursoController{
+public class CursoController {
     @Autowired
-    CursoServices cursoServices;
+    private CursoServices cursoServices;
 
     @GetMapping()
-    public ArrayList<CursoModel> obtenerCursos(){
-        return cursoServices.obtenerCursos();
+    public ResponseEntity<ArrayList<CursoModel>> obtenerCursos() {
+        ArrayList<CursoModel> cursos = cursoServices.obtenerCursos();
+        return ResponseEntity.ok(cursos);
     }
 
     @PostMapping()
-    public CursoModel guardarUsuario(@RequestBody CursoModel curso){
-        return this.cursoServices.guardarCurso(curso);
+    public ResponseEntity<CursoModel> guardarCurso(@RequestBody CursoModel curso) {
+        CursoModel guardado = cursoServices.guardarCurso(curso);
+        return ResponseEntity.ok(guardado);
     }
-    
+
     @GetMapping("/{id}")
-	public Optional<CursoModel> obtenerCursoPorId(@PathVariable("id") Long id) {
-		return this.cursoServices.obtenerPorId(id);
-	}
-    
-    @GetMapping("/query-precio")
-	public ArrayList<CursoModel> obtenerCursoPorPrecio(@RequestParam("precio") Float precio) {
-		return this.cursoServices.obtenerPorPrecio(precio);
-	}
-    
-    @GetMapping("/query-categoria")
-	public ArrayList<CursoModel> obtenerCursoPorCategoria(@RequestParam("categoria") String categoria) {
-		return this.cursoServices.obtenerPorCategoria(categoria);
-	}
-    
-    @GetMapping("/query-direccion")
-	public ArrayList<CursoModel> obtenerCursoPorDireccion(@RequestParam("direccion") String direccion) {
-		return this.cursoServices.obtenerPorDireccion(direccion);
-	}
-    
-    @DeleteMapping("/{id}")
-        public ResponseEntity<?> eliminarPorId(@PathVariable("id") Long id) {
-			if (this.cursoServices.eliminarCurso(id)) {
-				return ResponseEntity.status(204).body("");
-			} else {
-				return ResponseEntity.notFound().build();
-			}
+    public ResponseEntity<CursoModel> obtenerCursoPorId(@PathVariable("id") Long id) {
+        Optional<CursoModel> curso = cursoServices.obtenerPorId(id);
+        return curso.map(ResponseEntity::ok).orElseGet(() -> ResponseEntity.notFound().build());
     }
-    
+
+    @GetMapping("/query-precio")
+    public ResponseEntity<ArrayList<CursoModel>> obtenerCursoPorPrecio(@RequestParam("precio") Float precio) {
+        ArrayList<CursoModel> cursos = cursoServices.obtenerPorPrecio(precio);
+        return ResponseEntity.ok(cursos);
+    }
+
+    @GetMapping("/query-categoria")
+    public ResponseEntity<ArrayList<CursoModel>> obtenerCursoPorCategoria(@RequestParam("categoria") String categoria) {
+        ArrayList<CursoModel> cursos = cursoServices.obtenerPorCategoria(categoria);
+        return ResponseEntity.ok(cursos);
+    }
+
+    @GetMapping("/query-direccion")
+    public ResponseEntity<ArrayList<CursoModel>> obtenerCursoPorDireccion(@RequestParam("direccion") String direccion) {
+        ArrayList<CursoModel> cursos = cursoServices.obtenerPorDireccion(direccion);
+        return ResponseEntity.ok(cursos);
+    }
+
+    @DeleteMapping("/{id}")
+    public ResponseEntity<?> eliminarPorId(@PathVariable("id") Long id) {
+        if (cursoServices.eliminarCurso(id)) {
+            return ResponseEntity.noContent().build();  // 204 No Content
+        } else {
+            return ResponseEntity.notFound().build();  // 404 Not Found
+        }
+    }
+
     @PutMapping("/{id}")
-	public String actualizarCurso(@PathVariable("id") Long id, @RequestBody CursoModel curso) {
-		boolean ok = this.cursoServices.actualizarCurso(id, curso);
-		if (ok) {
-			return "Se actualizó el curso con id " + id;
-		} else {
-			return "No se pudo actualizar el curso con id " + id;
-		}
-	}
+    public ResponseEntity<CursoModel> actualizarCurso(@PathVariable("id") Long id, @RequestBody CursoModel curso) {
+        CursoModel actualizado = cursoServices.actualizarCurso(id, curso);
+        if (actualizado != null) {
+            return ResponseEntity.ok(actualizado);  
+        } else {
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST).build(); 
+        }
+    }
+
 }

@@ -49,13 +49,12 @@ public class CursoServices {
 		}
 	}
 
-	public boolean actualizarCurso(Long id, CursoModel curso) {
-		try {
-			cursoRepositories.save(curso);
-			return true;
-		} catch (Exception e) {
-			return false;
+	public CursoModel actualizarCurso(Long id, CursoModel curso) {
+		if (cursoRepositories.existsById(id)) {
+			curso.setId(id);
+			return cursoRepositories.save(curso);
 		}
+		return null;
 	}
 		
 }

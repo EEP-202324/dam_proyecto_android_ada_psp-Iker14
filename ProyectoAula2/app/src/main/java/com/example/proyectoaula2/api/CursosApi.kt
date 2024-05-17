@@ -13,7 +13,10 @@ object cursosApi {
     val retrofitService: ApiService by lazy {
         retrofit.create(ApiService::class.java)
     }
+
 }
+
+
 
 
 

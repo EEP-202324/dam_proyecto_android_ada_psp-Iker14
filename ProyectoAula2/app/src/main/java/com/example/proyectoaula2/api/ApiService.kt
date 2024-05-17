@@ -14,9 +14,6 @@ import retrofit2.http.Query
 interface ApiService {
 
     @GET("curso/query-direccion")
-    suspend fun obtenerCursosPresenciales(@Query("direccion") direccion: String): Response<List<CursosAula>>
-
-    @GET("curso/query-direccion")
     suspend fun obtenerCursosPorTipo(@Query("direccion") direccion: String): Response<List<CursosAula>>
 
     @GET("curso/{id}")
@@ -28,15 +25,6 @@ interface ApiService {
     @DELETE("curso/{id}")
     suspend fun deleteCourse(@Path("id") id: Int): Response<Unit>
 
-//    @PUT("curso/{id}")
-//    suspend fun updateCourse(@Path("id") id: Int, @Body updatedCourse: CursosAula): Response<String>
-
-//    @PUT("curso/{id}")
-//    fun updateCourse(@Path("id") id: Int, @Body curso: Curso): Call<String>
-
-//    @PUT("curso/{id}")
-//    suspend fun updateCourse(@Path("id") id: Int, @Body curso: CursosAula): Response<CursosAula>
-
     @PUT("curso/{id}")
-    suspend fun updateCourse(@Path("id") id: Int, @Body updatedCourse: CursosAula): Response<String>
+    suspend fun updateCourse(@Path("id") id: Long, @Body updatedCourse: CursosAula): Response<CursosAula>
 }

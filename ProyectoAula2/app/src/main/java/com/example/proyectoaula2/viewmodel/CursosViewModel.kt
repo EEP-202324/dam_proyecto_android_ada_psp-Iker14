@@ -88,14 +88,13 @@ class CursosViewModel() : ViewModel() {
         }
     }
 
-    fun updateCourse(id: Int, updatedCourse: CursosAula) {
+    fun updateCourse(id: Long, updatedCourse: CursosAula) {
         viewModelScope.launch {
             try {
                 val response = cursosApi.retrofitService.updateCourse(id, updatedCourse)
                 if (response.isSuccessful && response.body() != null) {
-                    val message = response.body()!!
-                    Log.d("CursosViewModel", "Response: $message")
-                    // Actualizar la UI o la lista de cursos si es necesario
+                    val updatedCourse = response.body()!!
+                    Log.d("CursosViewModel", "Curso actualizado: $updatedCourse")
                 } else {
                     Log.e("CursosViewModel", "Failed to update course: ${response.errorBody()?.string()}")
                 }

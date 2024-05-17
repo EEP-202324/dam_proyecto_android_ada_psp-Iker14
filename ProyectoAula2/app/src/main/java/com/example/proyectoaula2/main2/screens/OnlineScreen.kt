@@ -52,7 +52,7 @@ fun OnlineScreen(navController: NavController, tipo: String) {
     Column(modifier = Modifier.fillMaxSize()) {
         LazyColumn {
             items(cursos) { curso ->
-                CursoItem(curso)
+                Curso2Item(curso, viewModel, navController)
             }
 
         }
@@ -98,6 +98,7 @@ fun CursoItem(curso: CursosAula, viewModel: CursosViewModel = viewModel(), navCo
                 IconButton(onClick = { navController.navigate("edit/${curso.id}") }) {
                     Icon(Icons.Filled.Edit, contentDescription = "Editar curso")
                 }
+
                 IconButton(onClick = { viewModel.deleteCourse(curso.id) }) {
                     Icon(Icons.Filled.Delete, contentDescription = "Eliminar curso")
 
