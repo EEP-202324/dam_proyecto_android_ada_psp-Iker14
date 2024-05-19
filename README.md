@@ -3,12 +3,13 @@ PROYECTO "dam_proyecto_android_ada_psp-Iker14" DE IKER SIERRA SANZ
 
 ##ENLAZE VIDEO##
 
+https://eepmad-my.sharepoint.com/:v:/g/personal/iker-sierra1_eep-igroup_com/ES6V1OKnBt1PpcHKh_SbFvEB9kKEN_iHpogz9MMQRI_Ymg?e=sJ2rjK&nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJTdHJlYW1XZWJBcHAiLCJyZWZlcnJhbFZpZXciOiJTaGFyZURpYWxvZy1MaW5rIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXcifX0%3D
 
 
 
 ##EXPLICACION BREVE DEL PROYECTO##
 
-	El proyecto está basado en una aplicacion Para que las entidades presentes en Aula 	puedan ver y registrar los cursos que proporcionan.
+	El proyecto está basado en una aplicacion Para que las entidades presentes en Aula puedan ver y registrar los cursos que 	proporcionan.
 
 
 ##RÚBRICA GENERAL##
@@ -50,8 +51,6 @@ PROYECTO "dam_proyecto_android_ada_psp-Iker14" DE IKER SIERRA SANZ
 	Widget de selección para los 
 	valores en las pantallas de 
 	creación/modificación.
-
-	Test Unitarios.
 ········································································	
 
 ##RÚBRICA PSP##
