@@ -1,0 +1,70 @@
+*.iml
+.gradle
+/local.properties
+/.idea/caches
+/.idea/libraries
+/.idea/modules.xml
+/.idea/workspace.xml
+/.idea/navEditor.xml
+/.idea/assetWizardSettings.xml
+.DS_Store
+/build
+/captures
+.externalNativeBuild
+.cxx
+local.properties
+
+*.xml
+# Archivos y directorios de compilación
+*.apk
+*.ap_
+*.aab
+*.aar
+*.dex
+*.class
+bin/
+build/
+out/
+release/
+
+# Otros archivos generados
+*.log
+*.zip
+*.tar.gz
+*.rar
+*.jar
+
+# Archivos de sistema operativo
+.DS_Store
+Thumbs.db
+
+# Archivos de configuración IDE de Android Studio
+.idea/
+!.idea/modules.xml
+!.idea/codeStyles/
+*.iml
+*.iws
+*.ipr
+
+# Archivos de configuración local
+local.properties
+google-services.json
+
+# Carpeta Gradle
+.gradle/
+gradle.properties
+gradlew
+gradlew.bat
+gradle-wrapper.jar
+gradle-wrapper.properties
+
+# Carpeta de caché (como para el emulador de Android)
+.cache
+.captures
+
+# Keystores de firma
+*.jks
+*.keystore
+
+# Archivos de configuración específicos del sistema operativo o editor
+.vscode/

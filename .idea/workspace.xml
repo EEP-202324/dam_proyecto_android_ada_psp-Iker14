@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="NONE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="7a85b005-15d1-493c-812d-11a14b464be2" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/ProyectoAula2/app/src/main/java/com/example/proyectoaula2/appProyect.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ProyectoAula2/app/src/main/java/com/example/proyectoaula2/main2/screens/FormularioScreen.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ProyectoAula2/app/src/main/java/com/example/proyectoaula2/main2/screens/OnlineScreen.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ProyectoAula2/app/src/main/java/com/example/proyectoaula2/main2/screens/PresencialScreen.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProyectoAula2/app/build.gradle.kts" beforeDir="false" afterPath="$PROJECT_DIR$/ProyectoAula2/app/build.gradle.kts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProyectoAula2/app/src/main/java/com/example/proyectoaula2/MainActivity.kt" beforeDir="false" afterPath="$PROJECT_DIR$/ProyectoAula2/app/src/main/java/com/example/proyectoaula2/MainActivity.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProyectoAula2/app/src/main/java/com/example/proyectoaula2/main2/CursosRepository.kt" beforeDir="false" afterPath="$PROJECT_DIR$/ProyectoAula2/app/src/main/java/com/example/proyectoaula2/main2/CursosRepository.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProyectoAula2/app/src/main/java/com/example/proyectoaula2/main2/cursosApi.kt" beforeDir="false" afterPath="$PROJECT_DIR$/ProyectoAula2/app/src/main/java/com/example/proyectoaula2/main2/cursosApi.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProyectoAula2/app/src/main/java/com/example/proyectoaula2/main2/screens/HomeScreen.kt" beforeDir="false" afterPath="$PROJECT_DIR$/ProyectoAula2/app/src/main/java/com/example/proyectoaula2/main2/screens/HomeScreen.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProyectoAula2/gradle/libs.versions.toml" beforeDir="false" afterPath="$PROJECT_DIR$/ProyectoAula2/gradle/libs.versions.toml" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ClangdSettings">
+    <option name="formatViaClangd" value="false" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;customColor&quot;: &quot;&quot;,
+  &quot;associatedIndex&quot;: 5
+}</component>
+  <component name="ProjectId" id="2fjtnS01RGbxNZ7a8sk2O0kL6E9" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.cidr.known.project.marker&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.readMode.enableVisualFormatting&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;cf.first.check.clang-format&quot;: &quot;false&quot;,
+    &quot;cidr.known.project.marker&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/Iker/Documents/WORKSPACES/dam_proyecto_android_ada_psp-Iker14&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  }
+}</component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-jdk-9f38398b9061-18abd8497189-intellij.indexing.shared.core-IU-241.14494.240" />
+        <option value="bundled-js-predefined-1d06a55b98c1-74d2a5396914-JavaScript-IU-241.14494.240" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="7a85b005-15d1-493c-812d-11a14b464be2" name="Changes" comment="" />
+      <created>1714326481757</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1714326481757</updated>
+      <workItem from="1714326482791" duration="4750000" />
+      <workItem from="1714993778686" duration="6662000" />
+      <workItem from="1715250316657" duration="3000" />
+      <workItem from="1715344149533" duration="136000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+</project>
